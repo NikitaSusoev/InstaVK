@@ -23,6 +23,8 @@
 		11FE476F1E81DE1F00D57721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11FE476D1E81DE1F00D57721 /* LaunchScreen.storyboard */; };
 		630073541E917D2600DA4F74 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630073521E917D2600DA4F74 /* CommentCell.swift */; };
 		630073551E917D2600DA4F74 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630073531E917D2600DA4F74 /* CommentCell.xib */; };
+		6386B67F1E92CA8D00853D76 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6386B67E1E92CA8D00853D76 /* CommentsController.swift */; };
+		6386B6811E92CAAD00853D76 /* CommentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6386B6801E92CAAD00853D76 /* CommentsStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		11FE47701E81DE1F00D57721 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		630073521E917D2600DA4F74 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		630073531E917D2600DA4F74 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		6386B67E1E92CA8D00853D76 /* CommentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
+		6386B6801E92CAAD00853D76 /* CommentsStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CommentsStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 				113CB12E1E86A2110054B413 /* NewsStoryboard.storyboard */,
 				113CB1571E86B48A0054B413 /* PhotoStoryboard.storyboard */,
 				113CB1591E86B4A10054B413 /* ProfileStoryboard.storyboard */,
+				6386B6801E92CAAD00853D76 /* CommentsStoryboard.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -89,6 +94,7 @@
 				113CB1301E86A2940054B413 /* Storyboard */,
 				11FE47611E81DE1F00D57721 /* AppDelegate.swift */,
 				11FE47631E81DE1F00D57721 /* ViewController.swift */,
+				6386B67E1E92CA8D00853D76 /* CommentsController.swift */,
 				113CB1641E899E8F0054B413 /* ProfileController.swift */,
 				113CB1661E89AC800054B413 /* NewsController.swift */,
 				113CB1681E89ACAF0054B413 /* PhotoController.swift */,
@@ -170,6 +176,7 @@
 				630073551E917D2600DA4F74 /* CommentCell.xib in Resources */,
 				113CB12F1E86A2110054B413 /* NewsStoryboard.storyboard in Resources */,
 				113CB15A1E86B4A10054B413 /* ProfileStoryboard.storyboard in Resources */,
+				6386B6811E92CAAD00853D76 /* CommentsStoryboard.storyboard in Resources */,
 				11FE476C1E81DE1F00D57721 /* Assets.xcassets in Resources */,
 				11FE47671E81DE1F00D57721 /* Main.storyboard in Resources */,
 			);
@@ -184,6 +191,7 @@
 			files = (
 				113CB1691E89ACAF0054B413 /* PhotoController.swift in Sources */,
 				113CB1651E899E8F0054B413 /* ProfileController.swift in Sources */,
+				6386B67F1E92CA8D00853D76 /* CommentsController.swift in Sources */,
 				11FE47641E81DE1F00D57721 /* ViewController.swift in Sources */,
 				11FE47621E81DE1F00D57721 /* AppDelegate.swift in Sources */,
 				113CB1671E89AC800054B413 /* NewsController.swift in Sources */,
