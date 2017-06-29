@@ -13,7 +13,7 @@ class CameraController: UIViewController,AVCapturePhotoCaptureDelegate {
     
     let dismissButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "DismissArrowBold"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "DismissArrowWhiteBold"), for: .normal)
         button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
         return button
     }()
@@ -24,7 +24,7 @@ class CameraController: UIViewController,AVCapturePhotoCaptureDelegate {
     
     let makePhotoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "CircleBold"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "CircleWhiteWDots"), for: .normal)
         button.addTarget(self, action: #selector(handleCapturePhoto), for: .touchUpInside)
         return button
     }()

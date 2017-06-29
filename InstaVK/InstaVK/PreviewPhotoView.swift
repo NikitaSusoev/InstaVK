@@ -18,14 +18,14 @@ class PreviewPhotoView: UIView {
     
     let cancelButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "XBold"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "XWhiteBold"), for: .normal)
         button.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         return button
     }()
     
     let saveButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "SaveFilled"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "SaveFilledWhite"), for: .normal)
         button.addTarget(self, action: #selector(handleSave), for: .touchUpInside)
         return button
     }()

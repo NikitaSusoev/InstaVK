@@ -23,6 +23,15 @@ class CommentsController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: commentCellIdentifier)
         self.tableView.tableFooterView = UIView()
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        fetchComments()
+    }
+    
+    func handleRefresh() {
+        print("Attempting to refresh comments feed")
         fetchComments()
     }
     
@@ -53,6 +62,8 @@ class CommentsController: UITableViewController {
             }
             
             do {
+                self.comments.removeAll()
+                self.profiles.removeAll()
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                 guard let jsonDict = json as? [String: Any] else { return }
                 guard let responseDict = jsonDict["response"] as? [String: Any] else { return }
@@ -70,6 +81,7 @@ class CommentsController: UITableViewController {
                 DispatchQueue.main.async(execute: { () -> Void in
                     self.tableView?.reloadData()
                 })
+                self.tableView.refreshControl?.endRefreshing()
             } catch let jsonError {
                 print(jsonError)
             }
@@ -83,7 +95,27 @@ class CommentsController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        var numOfSections: Int = 0
+        if comments.count>0
+        {
+            tableView.separatorStyle = .singleLine
+            tableView.separatorInset = .zero
+            numOfSections = 1
+            tableView.backgroundView = nil
+        }
+        else
+        {
+            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0,
+                                                                 y: 0,
+                                                                 width: tableView.bounds.size.width,
+                                                                 height: tableView.bounds.size.height))
+            noDataLabel.text          = "No comments yet :("
+            noDataLabel.textColor     = UIColor.black
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+        }
+        return numOfSections
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,15 +130,18 @@ class CommentsController: UITableViewController {
                 commentsCell.avatarImage.setIndicatorStyle(.gray)
                 commentsCell.avatarImage.sd_setImage(with: URL(string: postOwnerAvatarUrl))
             } else {
-                commentsCell.avatarImage.image = #imageLiteral(resourceName: "error404")
+                commentsCell.avatarImage.image = #imageLiteral(resourceName: "VKSadDogSquare")
             }
             if let commentOwnerFirstName = profiles[comments[indexPath.row].ownerId]?.firstName, let commentOwnerSecondName = profiles[comments[indexPath.row].ownerId]?.lastName {
                 commentsCell.userFirstLastName.setTitle(commentOwnerFirstName + " " + commentOwnerSecondName, for: .normal)
             } else {
                 commentsCell.userFirstLastName.setTitle("Unavailable", for: .normal)
             }
-            
-            commentsCell.commentText.text = comments[indexPath.row].text
+            if comments[indexPath.row].text != "" {
+                commentsCell.commentText.text = comments[indexPath.row].text
+            } else {
+                commentsCell.commentText.text = "template for picture comment"
+            }
         }
         return cell
     }
