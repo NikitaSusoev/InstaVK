@@ -41,6 +41,10 @@ class PhotoController: UICollectionViewController {
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
         
         if fetchResult.count > 0 {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 677923fbdd965c743cc7c25a6ac73f93e8d801a1
             /*var indexWithOffset = self.tempIndex + self.offset
             
             if indexWithOffset > fetchResult.count {
@@ -60,9 +64,12 @@ class PhotoController: UICollectionViewController {
             }
             
             //self.collectionView?.reloadData()
-        }
-        }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 677923fbdd965c743cc7c25a6ac73f93e8d801a1
+        }
+        }
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
